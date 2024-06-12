@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        Dropzone.options.myDropzone = { // camelized version of the `id`
+            chunking: true,
+            chunkSize: 20000,
+        };
+    </script>
+{% endblock %}
+
+{% block body %}
+    <form action="{{ oneup_uploader_endpoint('gallery') }}" class="dropzone" id="my-dropzone">
+    </form>
+{% endblock %}
